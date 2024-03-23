@@ -59,8 +59,10 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6>
-                        </div>
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6> -->
+                            <a href="add-ranap.php?user=<?php echo $_SESSION['id_user']; ?>" class="tambah d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                    </div>
                         <div class="card-body">
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -71,7 +73,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>Nama Ruang</th>
                                             <th>Kelas</th>
                                             <th>Jumlah Ruang</th>
-                                            <th>Jumlah Kasur</th>
+                                            <th>Gambar</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -80,27 +82,27 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>Nama Ruang</th>
                                             <th>Kelas</th>
                                             <th>Jumlah Ruang</th>
-                                            <th>Jumlah Kasur</th>
+                                            <th>Gambar</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                                             $nomor = 1;
                                             $query = "SELECT * FROM ranap";
-                                            $q_tampil_user = mysqli_query($db, $query);
+                                            $q_tampil_ranap = mysqli_query($db, $query);
 
-                                            if (mysqli_num_rows($q_tampil_user) > 0) {
-                                                while ($r_tampil_user = mysqli_fetch_array($q_tampil_user)) {
+                                            if (mysqli_num_rows($q_tampil_ranap) > 0) {
+                                                while ($r_tampil_ranap = mysqli_fetch_array($q_tampil_ranap)) {
                                             ?>
                                                     <tr>
                                                         <td><?php echo $nomor; ?></td>
-                                                        <td><?php echo $r_tampil_user['nm_ruang']; ?></td>
-                                                        <td><?php echo $r_tampil_user['kelas']; ?></td>
-                                                        <td><?php echo $r_tampil_user['jml_ruang']; ?></td>
-                                                        <td><?php echo $r_tampil_user['jml_kasur']; ?></td>
+                                                        <td><?php echo $r_tampil_ranap['nm_ruang']; ?></td>
+                                                        <td><?php echo $r_tampil_ranap['kelas']; ?></td>
+                                                        <td><?php echo $r_tampil_ranap['jml_ruang']; ?></td>
+                                                        <td><img src="img/<?php echo $r_tampil_ranap['gambar'];?>" width=70px height=70px></td>
                                                         <td>
-                                                            <a href="index-admin.php?p=edit-user&id_user=<?php echo $r_tampil_user['id_user']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
-                                                            <button type="button" class="btn btn-danger btn-sm"><a href="admin/proses/hapus-kontak.php?id_user=<?php echo $r_tampil_user['id_user']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
+                                                            <a href="edit-ranap.php?edit-ranap&id_ruang=<?php echo $r_tampil_ranap['id_ruang']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+                                                            <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedRanap&id_ruang=<?= $r_tampil_ranap['id_ruang']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
                                                         </td>
                                                     </tr>
                                             <?php

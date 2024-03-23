@@ -3,7 +3,12 @@ session_start();
 
 include 'layout/koneksi.php';
 
+
 if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
+    
+    $id_ralan = $_GET['id_ralan'];
+    $q_tampil_ralan = mysqli_query($db, "SELECT * FROM ralan WHERE id_ralan = '$id_ralan'");
+    $r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan);
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +22,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSUD SLG - Tambah Data Ranap</title>
+    <title>RSUD SLG - Tambah Data Ralan</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,29 +52,36 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
             <div class="card-body p-5">
                     <div class="col-lg-12">
                         <div class="p-2">
-
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Rawat Inap</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Edit Data Rawat Jalan</h1>
                             </div>
                             
-                            <form action="action.php" method="POST" class="user" enctype="multipart/form-data">
+                            <form action="action.php" method="POST" class="user">
                                 <div class="form-group">
-                                    <input type="text" name="nm_ruang" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Nama Ruang">
+                                    <input type="hidden" name="id_ralan" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['id_ralan'];?>">
                                 </div>
+                                <td>Nama Poli</td>
                                 <div class="form-group">
-                                    <input type="text" name="kelas" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Kelas">
+                                    <input type="text" name="nm_poli" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?= $r_tampil_ralan['nm_poli']?>">
                                 </div>
+                                <td>Nama Dokter</td>
                                 <div class="form-group">
-                                    <input type="text" name="jml_ruang" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Jumlah Ruang">
+                                    <input type="text" name="nm_dokter" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['nm_dokter'];?>">
                                 </div>
+                                <td>Hari</td>
                                 <div class="form-group">
-                                    <input type="file" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Gambar">
+                                    <input type="text" name="hari" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['hari'];?>">
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addRanap" value="Submit">
+                                <td>Jam</td>
+                                <div class="form-group">
+                                    <input type="time" name="jam" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['jam'];?>">
+                                </div>
+                                <input type="submit" class="btn btn-primary btn-user btn-block" name="editRalan" value="Submit">
                             </form>
                         </div>
                     </div>

@@ -47,29 +47,36 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
             <div class="card-body p-5">
                     <div class="col-lg-12">
                         <div class="p-2">
-
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Rawat Inap</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Rawat Jalan</h1>
                             </div>
                             
-                            <form action="action.php" method="POST" class="user" enctype="multipart/form-data">
+                            <form action="action.php" method="POST" class="user">
+                                <!-- <div class="form-group">
+                                    <input type="text" name="id_ralan" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Id Ralan">
+                                </div> -->
                                 <div class="form-group">
-                                    <input type="text" name="nm_ruang" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Nama Ruang">
+                                    <input type="nm_poli" name="nm_poli" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Nama Poli">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="kelas" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Kelas">
+                                    <input type="nm_dokter" name="nm_dokter" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Nama Dokter">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="jml_ruang" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Jumlah Ruang">
+                                    <input type="hari" name="hari" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Hari">
                                 </div>
                                 <div class="form-group">
-                                    <input type="file" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Gambar">
+                                    <input type="time" name="jam" class="form-control form-control-gambar" id="exampleInputEmail"
+                                        placeholder="Jam">
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addRanap" value="Submit">
+                                <!-- <div class="form-group">
+                                    <input type="gambar" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
+                                        placeholder="Jumlah Kasur">
+                                </div> -->
+                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addRalan" value="Submit">
                             </form>
                         </div>
                     </div>

@@ -19,30 +19,30 @@
     <div class="container d-flex align-items-center">
 
     <!-- Uncomment below if you prefer to use an image logo -->
-    <a href="index.html" class="logo me-auto"><img src="assets/img/logo.ico" alt="" class="img-fluid"></a>
-      <h1 class="logo me-auto"><a href="index.php">RSUD SLG</a></h1>
+    <a href="index.html" class="logo me-auto"><img src="assets/img/logo.ico" alt="" class="img-fluid">
+      <h1 class="logo me-auto"><a href="index.php">RSUD SLG</a></h1></a>
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto" href="index.php">Beranda</a></li>
           <li class="dropdown"><a href="#about"><span>Profil<span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="pages/sejarah.php">Sejarah</a></li>
-              <li><a href="pages/vismis.php">Visi Misi</a></li>
-              <li><a href="pages/organisasi.php">Struktur Organisasi</a></li>
+              <li><a href="sejarah.php">Sejarah</a></li>
+              <li><a href="vismis.php">Visi Misi</a></li>
+              <li><a href="organisasi.php">Struktur Organisasi</a></li>
             </ul>
           </li>
           <li class="dropdown"><a href="#services"><span>Layanan<span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Rawat Inap</a></li>
-              <li class="dropdown"><a href="#"><span>Rawat Jalan</span> <i class="bi bi-chevron-right"></i></a>
-                <ul>
+              <li><a href="ranap.php">Rawat Inap</a></li>
+              <li class="dropdown"><a href="ralan.php"><span>Rawat Jalan</span> <i class="bi bi-chevron-right"></i></a>
+                <!-- <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
                   <li><a href="#">Deep Drop Down 3</a></li>
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
-                </ul>
+                </ul> -->
               <li><a href="#">Layanan IGD</a></li>
             </ul>
           </li>

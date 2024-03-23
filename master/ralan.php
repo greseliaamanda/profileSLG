@@ -17,7 +17,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSUD SLG - Ranap</title>
+    <title>RSUD SLG - Ralan</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,12 +56,14 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Rawat Inap</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Rawat Jalan</h1>
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6>
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6> -->
+                            <a href="add-ralan.php?user=<?php echo $_SESSION['id_user']; ?>" class="tambah d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -70,35 +72,40 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Poli</th>
+                                            <th>Nama Dokter</th>
                                             <th>Hari</th>
                                             <th>Jam</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
                                             <th>Nama Poli</th>
+                                            <th>Nama Dokter</th>
                                             <th>Hari</th>
                                             <th>Jam</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                                             $nomor = 1;
                                             $query = "SELECT * FROM ralan";
-                                            $q_tampil_user = mysqli_query($db, $query);
+                                            $q_tampil_ralan = mysqli_query($db, $query);
 
-                                            if (mysqli_num_rows($q_tampil_user) > 0) {
-                                                while ($r_tampil_user = mysqli_fetch_array($q_tampil_user)) {
+                                            if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                                                while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
                                             ?>
                                                     <tr>
                                                         <td><?php echo $nomor; ?></td>
-                                                        <td><?php echo $r_tampil_user['nm_poli']; ?></td>
-                                                        <td><?php echo $r_tampil_user['hari']; ?></td>
-                                                        <td><?php echo $r_tampil_user['jam']; ?></td>
+                                                        <td><?php echo $r_tampil_ralan['nm_poli']; ?></td>
+                                                        <td><?php echo $r_tampil_ralan['nm_dokter']; ?></td>
+                                                        <td><?php echo $r_tampil_ralan['hari']; ?></td>
+                                                        <td><?php echo $r_tampil_ralan['jam']; ?></td>
                                                         <td>
-                                                            <a href="index-admin.php?p=edit-user&id_user=<?php echo $r_tampil_user['id_user']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
-                                                            <button type="button" class="btn btn-danger btn-sm"><a href="admin/proses/hapus-kontak.php?id_user=<?php echo $r_tampil_user['id_user']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
+                                                            <a href="edit-ralan.php?edit-ralan&id_ralan=<?php echo $r_tampil_ralan['id_ralan']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+                                                            <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedRalan&id_ralan=<?= $r_tampil_ralan['id_ralan']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
                                                         </td>
                                                     </tr>
                                             <?php

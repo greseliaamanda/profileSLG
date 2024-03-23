@@ -17,7 +17,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSUD SLG - Tambah Data Ranap</title>
+    <title>RSUD SLG - Tambah Fasilitas</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,29 +47,24 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
             <div class="card-body p-5">
                     <div class="col-lg-12">
                         <div class="p-2">
-
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Rawat Inap</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Fasilitas</h1>
                             </div>
                             
-                            <form action="action.php" method="POST" class="user" enctype="multipart/form-data">
+                            <form action="action.php" method="POST" class="fasilitas" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" name="nm_ruang" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Nama Ruang">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="kelas" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Kelas">
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" name="jml_ruang" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Jumlah Ruang">
+                                    <input type="nama" name="nm_fasilitas" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Nama Fasilitas">
                                 </div>
                                 <div class="form-group">
                                     <input type="file" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
                                         placeholder="Gambar">
                                 </div>
-                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addRanap" value="Submit">
+                                <!-- <div class="form-group">
+                                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Password">
+                                </div> -->
+                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addFasilitas" value="Submit">
                             </form>
                         </div>
                     </div>

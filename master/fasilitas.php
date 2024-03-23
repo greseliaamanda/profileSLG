@@ -62,7 +62,9 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Layanan</h6>
+                            <!-- <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6> -->
+                            <a href="add-fasilitas.php?user=<?php echo $_SESSION['id_user']; ?>" class="tambah d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -72,6 +74,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>No</th>
                                             <th>Nama Fasilitas</th>
                                             <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -79,24 +82,25 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>No</th>
                                             <th>Nama Fasilitas</th>
                                             <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                                             $nomor = 1;
-                                            $query = "SELECT * FROM ranap";
-                                            $q_tampil_user = mysqli_query($db, $query);
+                                            $query = "SELECT * FROM fasilitas";
+                                            $q_tampil_fasilitas = mysqli_query($db, $query);
 
-                                            if (mysqli_num_rows($q_tampil_user) > 0) {
-                                                while ($r_tampil_user = mysqli_fetch_array($q_tampil_user)) {
+                                            if (mysqli_num_rows($q_tampil_fasilitas) > 0) {
+                                                while ($r_tampil_fasilitas = mysqli_fetch_array($q_tampil_fasilitas)) {
                                             ?>
                                                     <tr>
                                                         <td><?php echo $nomor; ?></td>
-                                                        <td><?php echo $r_tampil_user['nm_fasilitas']; ?></td>
-                                                        
+                                                        <td><?php echo $r_tampil_fasilitas['nm_fasilitas']; ?></td>
+                                                        <td><img src="img/<?php echo $r_tampil_fasilitas['gambar'];?>" width=70px height=70px></td>
                                                         <td>
-                                                            <a href="index-admin.php?p=edit-user&id_user=<?php echo $r_tampil_user['id_user']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
-                                                            <button type="button" class="btn btn-danger btn-sm"><a href="admin/proses/hapus-kontak.php?id_user=<?php echo $r_tampil_user['id_user']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
+                                                            <a href="edit-fasilitas.php?edit-fasilitas&id_fasilitas=<?php echo $r_tampil_fasilitas['id_fasilitas']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+                                                            <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedFasilitas&id_fasilitas=<?= $r_tampil_fasilitas['id_fasilitas']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
                                                         </td>
                                                     </tr>
                                             <?php

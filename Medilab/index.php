@@ -49,8 +49,8 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="d-flex align-items-center">
     <div class="container">
-      <h1>Welcome to Medilab</h1>
-      <h2>We are team of talented designers making websites with Bootstrap</h2>
+      <h1>RSUD SLG Kab. Kediri</h1>
+      <h2>Pelayanan Prima Komitmen Kami</h2>
       <a href="#about" class="btn-get-started scrollto">Get Started</a>
     </div>
   </section><!-- End Hero -->
@@ -64,13 +64,15 @@
         <div class="row">
           <div class="col-lg-4 d-flex align-items-stretch">
             <div class="content">
-              <h3>Why Choose Medilab?</h3>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-                Asperiores dolores sed et. Tenetur quia eos. Autem tempore quibusdam vel necessitatibus optio ad corporis.
+              <h3>Kenapa Harus Pilih RSUD SLG?</h3>
+              <p align="justify">
+              Memberi pelayanan kesehatan yang aman, bermutu, antidiskriminasi, 
+              dan efektif dengan mengutamakan kepentingan pasien sesuai dengan standar pelayanan Rumah Sakit.
+              <br><br>Dengan Misi, Mendorong peningkatan kualitas kehidupan masyarakat Indonesia dengan menyediakan solusi 
+              bisnis kesehatan yang bernilai tambah dan mengutamakan prinsip kemanusiaan dan keselamatan.  
               </p>
               <div class="text-center">
-                <a href="#" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
+                <a href="vismis.php" class="more-btn">Learn More <i class="bx bx-chevron-right"></i></a>
               </div>
             </div>
           </div>
@@ -80,15 +82,15 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-receipt"></i>
-                    <h4>Corporis voluptates sit</h4>
+                    <h4>Emas</h4>
                     <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-cube-alt"></i>
-                    <h4>Ullamco laboris ladore pan</h4>
-                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                    <h4>Akrobat</h4>
+                    <p>Layanan antar obat gratis, dengan prioritas utama lansia, </p>
                   </div>
                 </div>
                 <div class="col-xl-4 d-flex align-items-stretch">
@@ -99,15 +101,17 @@
                   </div>
                 </div>
               </div>
-            </div><!-- End .content-->
+            </div>
+            <!-- End .content-->
           </div>
         </div>
 
       </div>
-    </section><!-- End Why Us Section -->
+    </section>
+    <!-- End Why Us Section -->
 
     <!-- ======= About Section ======= -->
-    <section id="about" class="about">
+    <!-- <section id="about" class="about">
       <div class="container-fluid">
 
         <div class="row">
@@ -141,7 +145,8 @@
         </div>
 
       </div>
-    </section><!-- End About Section -->
+    </section> -->
+    <!-- End About Section -->
 
     <!-- ======= Counts Section ======= -->
     <section id="counts" class="counts">
@@ -182,9 +187,9 @@
           </div>
 
         </div>
-
       </div>
-    </section><!-- End Counts Section -->
+    </section>
+    <!-- End Counts Section -->
 
     <!-- ======= Services Section ======= -->
     <section id="services" class="services">
@@ -314,7 +319,7 @@
     </section><!-- End Appointment Section -->
 
     <!-- ======= Departments Section ======= -->
-    <section id="departments" class="departments">
+    <!-- <section id="departments" class="departments">
       <div class="container">
 
         <div class="section-title">
@@ -409,10 +414,11 @@
         </div>
 
       </div>
-    </section><!-- End Departments Section -->
+    </section> -->
+    <!-- End Departments Section -->
 
     <!-- ======= Doctors Section ======= -->
-    <section id="doctors" class="doctors">
+    <!-- <section id="ralan" class="doctors">
       <div class="container">
 
         <div class="section-title">
@@ -493,7 +499,8 @@
         </div>
 
       </div>
-    </section><!-- End Doctors Section -->
+    </section> -->
+    <!-- End Doctors Section -->
 
     <!-- ======= Frequently Asked Questions Section ======= -->
     <section id="faq" class="faq section-bg">

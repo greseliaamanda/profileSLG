@@ -3,7 +3,18 @@ session_start();
 
 include 'layout/koneksi.php';
 
+
 if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
+    
+    $id_fasilitas = $_GET['id_fasilitas'];
+    $q_tampil_fasilitas = mysqli_query($db, "SELECT * FROM fasilitas WHERE id_fasilitas = '$id_fasilitas'");
+    $r_tampil_fasilitas = mysqli_fetch_array($q_tampil_fasilitas);
+
+    if (empty($r_tampil_fasilitas['gambar']) or ($r_tampil_fasilitas['gambar'] == '-')) {
+        $foto = "admin-no-photo.jpg";
+    } else {
+        $foto = $r_tampil_fasilitas['gambar'];
+    }
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +28,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSUD SLG - Tambah Data Ranap</title>
+    <title>RSUD SLG - Tambah Data Ralan</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -47,29 +58,27 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
             <div class="card-body p-5">
                     <div class="col-lg-12">
                         <div class="p-2">
-
                             <div class="text-center">
-                                <h1 class="h4 text-gray-900 mb-4">Tambah Data Rawat Inap</h1>
+                                <h1 class="h4 text-gray-900 mb-4">Edit Data Rawat Jalan</h1>
                             </div>
                             
                             <form action="action.php" method="POST" class="user" enctype="multipart/form-data">
                                 <div class="form-group">
-                                    <input type="text" name="nm_ruang" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Nama Ruang">
+                                    <input type="hidden" name="id_fasilitas" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_fasilitas['id_fasilitas'];?>">
                                 </div>
+                                <td>Nama Fasilitas</td>
                                 <div class="form-group">
-                                    <input type="text" name="kelas" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Kelas">
+                                    <input type="text" name="nm_fasilitas" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?= $r_tampil_fasilitas['nm_fasilitas']?>">
                                 </div>
+                                <td>Gambar</td>
                                 <div class="form-group">
-                                    <input type="text" name="jml_ruang" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Jumlah Ruang">
+                                <img src="img/<?php echo $foto; ?>" width="70px" height="75px">
+                                    <input type="file" name="gambar" class="isian-formulir isian-formulir-border">
+                                    <input type="hidden" name="foto_awal" value="<?php echo $r_tampil_fasilitas['gambar'];?>">
                                 </div>
-                                <div class="form-group">
-                                    <input type="file" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Gambar">
-                                </div>
-                                <input type="submit" class="btn btn-primary btn-user btn-block" name="addRanap" value="Submit">
+                                <input type="submit" class="btn btn-primary btn-user btn-block" name="editFasilitas" value="Submit">
                             </form>
                         </div>
                     </div>
