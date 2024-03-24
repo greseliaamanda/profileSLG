@@ -53,7 +53,7 @@
               <li><a href="#">Berita</a></li>
               <li><a href="#">Event</a></li>
               <li><a href="#">Pengumuman</a></li>
-              <li><a href="#">Galeri</a></li>
+              <li><a href="galeri.php">Galeri</a></li>
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>

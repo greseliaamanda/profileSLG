@@ -96,7 +96,7 @@
                 <div class="col-xl-4 d-flex align-items-stretch">
                   <div class="icon-box mt-4 mt-xl-0">
                     <i class="bx bx-images"></i>
-                    <h4>Labore consequatur</h4>
+                    <h4>IDOLA</h4>
                     <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
                   </div>
                 </div>
@@ -654,7 +654,7 @@
     </section><!-- End Testimonials Section -->
 
     <!-- ======= Gallery Section ======= -->
-    <section id="gallery" class="gallery">
+    <!-- <section id="gallery" class="gallery">
       <div class="container">
 
         <div class="section-title">
@@ -733,7 +733,8 @@
         </div>
 
       </div>
-    </section><!-- End Gallery Section -->
+    </section> -->
+    <!-- End Gallery Section -->
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -746,7 +747,7 @@
       </div>
 
       <div>
-        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621" frameborder="0" allowfullscreen></iframe>
+        <iframe style="border:0; width: 100%; height: 350px;" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.6995342344967!2d112.05527737380594!3d-7.821593277676874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7859d00d4b3e1b%3A0xcf7323db591bb6de!2sSimpang%20Lima%20Gumul%20Hospital%20Kediri!5e0!3m2!1sen!2sid!4v1711292603509!5m2!1sen!2sid" frameborder="0" allowfullscreen></iframe>
       </div>
 
       <div class="container">

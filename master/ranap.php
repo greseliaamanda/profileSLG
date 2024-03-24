@@ -74,6 +74,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>Kelas</th>
                                             <th>Jumlah Ruang</th>
                                             <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
@@ -82,7 +83,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>Nama Ruang</th>
                                             <th>Kelas</th>
                                             <th>Jumlah Ruang</th>
-                                            <th>Gambar</th>
+                                            <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>

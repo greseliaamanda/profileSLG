@@ -7,11 +7,13 @@
     $jabatan = $_POST['jabatan'];
     $username = $_POST['username'];
     $password = $_POST['password'];
-    // $id_ralan = null;
+    $id_ralan = null;
     $nm_poli = $_POST['nm_poli'];
     $nm_dokter = $_POST['nm_dokter'];
     $hari = $_POST['hari'];
-    $jam =$_POST['jam'];
+    $hari2 = $_POST['hari2'];
+    $jam = $_POST['jam'];
+    $jam2 =$_POST['jam2'];
     //Ranap
     $id_ruang = $_POST['id_ruang'];
     $nm_ruang = $_POST['nm_ruang'];
@@ -21,7 +23,9 @@
     // Fasilitas
     $id_fasilitas = $_POST['id_fasilitas'];
     $nm_fasilitas = $_POST['nm_fasilitas'];
-
+    //Galeri
+    $id_galeri = $_POST['id_galeri'];
+    $nm_galeri = $_POST['nm_galeri'];
 
     // Tambah admin
     if(isset($_POST['addUser'])){
@@ -38,7 +42,7 @@
         mysqli_query($db, "UPDATE user
                             SET id_user='$id_user', nama='$nama', jabatan='$jabatan', username='$username', password='$password'
                             WHERE id_user = '$id_user'");
-        header("location: ralan.php?user=$data_user[id_user]");
+        header("location: user.php?user=$data_user[id_user]");
 
     // Hapus User
     }else if($act == 'deletedUser'){
@@ -50,7 +54,7 @@
     }else if(isset($_POST['addRalan'])){
         extract($_POST);
 
-        $sql = "INSERT INTO ralan VALUES('$id_ralan', '$nm_poli', '$nm_dokter', '$hari', '$jam')";
+        $sql = "INSERT INTO ralan VALUES('$id_ralan', '$nm_poli', '$nm_dokter', '$hari', '$hari2', '$jam', '$jam2')";
         $query = mysqli_query($db, $sql);
         header("location: ralan.php?user=$data_user[id_user]");
 
@@ -59,7 +63,7 @@
         extract($_POST);
 
         mysqli_query($db, "UPDATE ralan
-                            SET id_ralan='$id_ralan', nm_poli='$nm_poli', nm_dokter='$nm_dokter', hari='$hari', jam='$jam'
+                            SET id_ralan='$id_ralan', nm_poli='$nm_poli', nm_dokter='$nm_dokter', hari='$hari', hari2='$hari2', jam='$jam', jam2='$jam2'
                             WHERE id_ralan = '$id_ralan'");
         header("location: ralan.php?user=$data_user[id_user]");
 
@@ -159,11 +163,58 @@
                             WHERE id_fasilitas = '$id_fasilitas'");
         header("location: fasilitas.php?user=$data_user[id_user]");
 
-    // Hapus Ranap
+    // Hapus Faasilitas
     }else if($act == 'deletedFasilitas'){
 
         mysqli_query($db, "DELETE FROM fasilitas WHERE id_fasilitas = '$_GET[id_fasilitas]'");
         header("location: fasilitas.php?user=$data_user[id_user]");
+
+    // Tambah Galeri
+    }else if(isset($_POST['addGaleri'])){
+    extract($_POST);
+    $nama_file = $_FILES['gambar']['name'];
+
+    if(!empty($nama_file)){
+        $lokasi_file = $_FILES['gambar']['tmp_name'];
+        $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
+        $file_foto = $id_galeri. $deskripsi.".".$tipe_file;
+
+        $folder = "img/$file_foto";
+        move_uploaded_file($lokasi_file,"$folder");
+    }else{
+        $file_foto="-";
+    }
+
+    $sql = "INSERT INTO galeri VALUES('$id_galeri', '$deskripsi', '$file_foto')";
+    $query = mysqli_query($db, $sql);
+    header("location: galeri.php?user=$data_user[id_user]");
+
+    //Edit Fasilitas
+    }if (isset($_POST['editGaleri'])) {
+        extract($_POST);
+        $nama_file = $_FILES['gambar']['name'];
+
+        if(!empty($nama_file)){
+            $lokasi_file = $_FILES['gambar']['tmp_name'];
+            $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
+            $file_foto = $id_galeri.$nm_galeri.".".$tipe_file;
+
+            $folder = "img/$file_foto";
+            move_uploaded_file($lokasi_file, "$folder");
+        } else {
+            $file_foto=$foto_awal;
+        }
+
+        mysqli_query($db, "UPDATE galeri
+                            SET deskripsi='$deskripsi', gambar='$file_foto'
+                            WHERE id_galeri = '$id_galeri'");
+        header("location: galeri.php?user=$data_user[id_user]");
+
+    // Hapus Ranap
+    }else if($act == 'deletedGaleri'){
+
+        mysqli_query($db, "DELETE FROM galeri WHERE id_galeri = '$_GET[id_galeri]'");
+        header("location: galeri.php?user=$data_user[id_user]");
 
 
     }

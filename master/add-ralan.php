@@ -57,20 +57,32 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                         placeholder="Id Ralan">
                                 </div> -->
                                 <div class="form-group">
-                                    <input type="nm_poli" name="nm_poli" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="text" name="nm_poli" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Nama Poli">
                                 </div>
                                 <div class="form-group">
-                                    <input type="nm_dokter" name="nm_dokter" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="text" name="nm_dokter" class="form-control form-control-user" id="exampleInputEmail"
                                         placeholder="Nama Dokter">
                                 </div>
                                 <div class="form-group">
-                                    <input type="hari" name="hari" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Hari">
+                                    <input type="text" name="hari" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Hari 1">
                                 </div>
                                 <div class="form-group">
-                                    <input type="time" name="jam" class="form-control form-control-gambar" id="exampleInputEmail"
-                                        placeholder="Jam">
+                                    <input type="text" name="hari2" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Hari 2">
+                                </div>
+                                <div class="form-group">
+                                    <input type="text" name="jam" class="form-control form-control-gambar" id="exampleInputEmail"
+                                        placeholder="Jam 1">
+                                </div>
+                                <!-- <div class="form-group">
+                                    <input type="time" name="jamb" class="form-control form-control-gambar" id="exampleInputEmail"
+                                        placeholder="Jam 1">
+                                </div> -->
+                                <div class="form-group">
+                                    <input type="text" name="jam2" class="form-control form-control-gambar" id="exampleInputEmail"
+                                        placeholder="Jam 2">
                                 </div>
                                 <!-- <div class="form-group">
                                     <input type="gambar" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"

@@ -1,3 +1,5 @@
+<?php include '../master/layout/koneksi.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>Visi Misi - RSUD SLG</title>
+  <title>Struktur Organisasi - RSUD SLG</title>
   <meta content="" name="description">
   <meta content="" name="keywords">
 
@@ -59,81 +61,53 @@
           <!-- <h2>Inner Page</h2> -->
           <ol>
             <li><a href="index.php">Home</a></li>
-            <li>Visi Misi</li>
+            <li>Galeri</li>
           </ol>
         </div>
 
       </div>
     </section><!-- End Breadcrumbs Section -->
 
-    <section class="inner-page">
+    <!-- ======= Gallery Section ======= -->
+    <section id="gallery" class="gallery">
       <div class="container">
-        
-        <!-- Caraousell -->
-        <!-- <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-        </div>
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-            <div class="carousel-item">
-            <img src="..." class="d-block w-100" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-        </div> -->
 
-    <!-- ======= About Section ======= -->
-    <div id="about" class="about">
+        <div class="section-title">
+          <h2>Gallery</h2>
+          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+        </div>
+      
+
       <div class="container-fluid">
+        <div class="row g-0">
 
-        <div class="row">
-          <div class="col-xl-5 col-lg-6 video-box d-flex justify-content-center align-items-stretch position-relative">
-            <a href="https://www.youtube.com/watch?v=XijYmr0fjS8" class="glightbox play-btn mb-4"></a>
-          </div>
+          <?php
+            $query = "SELECT * FROM galeri";
+            $q_tampil_galeri = mysqli_query($db, $query);
 
-          <div class="col-xl-7 col-lg-6 icon-boxes d-flex flex-column align-items-stretch justify-content-center py-5 px-lg-5">
-            <h3>Visi</h3>
-            <p>Rumah Sakit unggulan yang menjadi pilihan utama masyarakat di wilayah Kediri dan sekitarnya.</p>
-
-            <section>
-              <h3>Misi</h3>
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-fingerprint"></i></div>
-              <!-- <h4 class="title"><a href="">Lorem Ipsum</a></h4> -->
-              <p class="description">Menyelenggarakan pelayanan kesehatan terbaik, bermutu, profesional dan terjangkau bagi semua lapisan masyarakat.</p>
+            if (mysqli_num_rows($q_tampil_galeri) > 0) {
+              while ($r_tampil_galeri = mysqli_fetch_array($q_tampil_galeri)) {
+            ?>
+            
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="../master/img/<?= $r_tampil_galeri['gambar']?>" class="galelry-lightbox">
+                  <img src="../master/img/<?= $r_tampil_galeri['gambar']?>" alt="" class="img-fluid">
+                </a>
+              </div>
             </div>
 
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-gift"></i></div>
-              <!-- <h4 class="title"><a href="">Nemo Enim</a></h4> -->
-              <p class="description">Menyelenggarakan sistem manajemen keuangan dan pengelolaan sumber daya secara efektif, efisien, transparan dan akuntabel.</p>
-            </div>
-
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-atom"></i></div>
-              <!-- <h4 class="title"><a href="">Dine Pad</a></h4> -->
-              <p class="description">Membangun kerjasama dengan berbagai pihak dalam upaya meningkatkan pelayanan, sumber daya manusia dan IPTEK di bidang kesehatan.</p>
-            </div>
-            </section>
-          </div>
+            <?php
+              }
+            } else {
+              echo "";
+            }
+            ?>
         </div>
 
       </div>
+      </div>
+    </section><!-- End Gallery Section -->
 
   </main>
   <!-- End #main -->

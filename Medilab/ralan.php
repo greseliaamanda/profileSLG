@@ -1,3 +1,5 @@
+<?php include '../master/layout/koneksi.php';?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -58,7 +60,7 @@
         <div class="d-flex justify-content-between align-items-center">
           <!-- <h2>Inner Page</h2> -->
           <ol>
-            <li><a href="index.html">Home</a></li>
+            <li><a href="index.php">Home</a></li>
             <li>Rawat Jalan</li>
           </ol>
         </div>
@@ -79,349 +81,600 @@
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
-                <h4>Klinik Spesialis Penyakit Dalam</h4><br>
-                <span><strong>dr. Harnowo Wilujeng, Sp.PD</strong></span>
-                <p>Senin & Kamis: 09.00 - 13.00 WIB</p><br>
+              <h4>Spesialis Penyakit Dalam</h4><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis penyakit dalam'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Ellisma Swandini, Sp.PD</strong></span>
-                <p>Rabu: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
-
-                <span><strong>dr. Febrian Daru Setiawan, Sp.PD</strong></span>
-                <p>Selasa: 09.00 - 13.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-2.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Jantung</h4><br>
-                <span><strong>dr. M. Afies Sjugiharto, Sp.JP</strong></span>
-                <p>Selasa & Kamis: 09.00 - 13.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis jantung'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Anita Surya, Sp.JP</strong></span>
-                <p>Senin & Rabu: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-3.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Mata</h4><br>
-                <span><strong>dr. Rizqi Wahyu Hariyono, Sp.M</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <P>Jumat: 09.00 - 11.00 WIB</P>
-              </div>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis mata'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
             </div>
+          </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Paru</h4><br>
-                <span><strong>dr. Caesar Ensang Timuda, Sp.P</strong></span>
-                <p>Senin & Selasa: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis paru'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Obgyn</h4><br>
-                <span><strong>dr. Tony Widyanto, Sp.OG(K)</strong></span>
-                <p>Kamis: 09.00 - 13.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis obgyn'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Dadang Wibawa, Sp.OG</strong></span>
-                <p>Senin, Selasa, Rabu: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
-
-                <span>dr. Dhamayanti Eka Oktavia, Sp.OG</span>
-                <p>Senin, Selasa, Rabu: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
-
-                <span><strong>dr. Bramantyo Aji, Sp.OG</strong></span>
-                <p>Senin, Selasa, Rabu: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Bedah Plastik</h4><br>
-                <span><strong>dr. Bernadetta, M.Ked.Klin, Sp.BP-RE</strong></span>
-                <p>Selasa & Kamis: 09.00 - 12.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis bedah plastik'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-1.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Anak</h4><br>
-                <span><strong>dr. Anggayasti, Sp.A., M.Kes</strong></span>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis anak'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Bayu Prabowo, Sp.A</strong></span>
-                <p>Senin & Rabu: 09.00 - 13.00 WIB</p>
-
-                <span><strong>dr. Eko Wahyudi, Sp.A</strong></span>
-                <p>Selasa & Kamis: 09.00 - 13.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
           
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis TB Paru</h4><br>
-                <span><strong>dr. Caesar Ensang Timuda, Sp.P</strong></span>
-                <p>Rabu & Kamis: 09.00 - 13.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis tb paru'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Nurul Widyawati</strong></span>
-                <p>Rabu & Kamis: 09.00 - 13.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Laktasi</h4><br>
-                <span><strong>dr. Dyah Puspitarini</strong></span>
-                <p>Selasa & Kamis: 09.00 - 13.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'laktasi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Rehabilitasi Medik</h4><br>
-                <span><strong>dr. Abdul Hakim Pranata, Sp.KFR</strong></span>
-                <p>Senin - Kamis: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis rehabilitasi medik'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Urologi</h4><br>
-                <span><strong>dr. Rahmad Krismantoro, Sp.U</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis urologi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis THT</h4><br>
-                <span><strong>dr. Farah Ayu Niswana, Sp.THT-KL</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis tht'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Kulit dan Kelamin</h4><br>
-                <span><strong>dr. Emy Kusumaningsih, Sp.DV</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis kulit dan kelamin'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Orthopedi</h4><br>
-                <span><strong>dr. Caesar Antony Simanjuntak, Sp.OT</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p><br>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis orthopedi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Patologi Anatomi</h4><br>
-                <span><strong>dr. Ali Mashuri, Sp.PA</strong></span>
-                <p>Kamis: 14.30 - 15.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis anatomi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Anestesi</h4><br>
-                <span><strong>dr. Windy Ari Wijaya, Sp.An</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis anestesi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Ferrie Budianto, Sp.An</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
-
-                <span><strong>dr. Adi Santoso, Sp.An</strong></span>
-                <p>Senin & Jumat: 07.00 - 09.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Gigi Umum</h4><br>
-                <span><strong>drg. Maya Kurniawati</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'gigi umum'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Dedhy Kukuh Setiawan</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Gigi Anak</h4><br>
-                <span><strong>drg. Agus Achmadi, Sp.KGA</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis gigi anak'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Prostodonti</h4><br>
-                <span><strong>drg. Hendrik Danu Wahyudi, Sp.Pros</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis prostodonti'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Konservasi Gigi</h4><br>
-                <span><strong>drg. Dian Natalia F., Sp.KG</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis konservasi gigi'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Medical Check Up</h4><br>
-                <span><strong>dr. Nuniek Ayu Setya Ditha</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'mcu'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Irene Mentari Likusugi'Pakan</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik VCT</h4><br>
-                <span><strong>dr. Ahmad Arif Very Fauzan</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'vct'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Kosala Tri Rinaryanto</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Saraf</h4><br>
-                <span><strong>dr. Afiah Efedra, Sp.N</strong></span>
-                <p>Senin - Jumat: 09.00 - 10.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis saraf'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Laurentia Divina, Sp.S</strong></span>
-                <p>Senin: 09.00 - 12.00 WIB</p>
-                <p>Selasa - Kamis: 10.30 - 12.30 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Bedah</h4><br>
-                <span><strong>dr. Norman Hadi, Sp.B</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p><br>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis bedah'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
 
-                <span><strong>dr. Ari Sardito, Sp.B</strong></span>
-                <p>Senin - Kamis: 09.00 - 13.00 WIB</p>
-                <p>Jumat: 10.30 - 11.00 WIB</p>
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>
 
           <div class="col-lg-6 mt-4">
             <div class="member d-flex align-items-start">
-              <!-- <div class="pic"><img src="assets/img/doctors/doctors-4.jpg" class="img-fluid" alt=""></div> -->
               <div class="member-info">
                 <h4>Klinik Spesialis Psikiatri</h4><br>
-                <span><strong>dr. Hedina Suwondo, Sp.KJ</strong></span>
-                <p>Kamis: 14.00 - 15.00 WIB</p>
-                <p>Jumat: 09.00 - 11.00 WIB</p>
+                <?php
+                  $query = "SELECT * FROM ralan WHERE nm_poli = 'spesialis psikiatri'";
+                  $q_tampil_ralan = mysqli_query($db, $query);
+
+                  if (mysqli_num_rows($q_tampil_ralan) > 0) {
+                      while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
+                ?>
+                  <span><strong><?= $r_tampil_ralan['nm_dokter']?></strong></span>
+                  <p><?= $r_tampil_ralan['hari']?> <?= $r_tampil_ralan['jam']?></p>
+                  <p><?= $r_tampil_ralan['hari2']?> <?= $r_tampil_ralan['jam2']?></p><br>
+                <?php
+                }
+                  } else {
+                      echo "";
+                  }
+                ?>
               </div>
             </div>
           </div>

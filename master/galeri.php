@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-include 'layout/koneksi.php';
-
 if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
 ?>
 
@@ -17,7 +15,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>RSUD SLG - Ralan</title>
+    <title>RSUD SLG - Galeri</title>
 
     <!-- Custom fonts for this template -->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -56,14 +54,17 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Rawat Jalan</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Galeri</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank"
+                            href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
                             <!-- <h6 class="m-0 font-weight-bold text-primary">Data Ranap</h6> -->
-                            <a href="add-ralan.php?user=<?php echo $_SESSION['id_user']; ?>" class="tambah d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
-                                class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
+                            <a href="add-galeri.php?user=<?php echo $_SESSION['id_user']; ?>" class="tambah d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i
+                            class="fas fa-plus fa-sm text-white-50"></i> Tambah Data</a>
                         </div>
                         <div class="card-body">
                             <div class="table-responsive">
@@ -71,44 +72,38 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                 <thead>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Poli</th>
-                                            <th>Nama Dokter</th>
-                                            <th>Hari</th>
-                                            <th>Jam</th>
+                                            <th>Deskripsi</th>
+                                            <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
                                             <th>No</th>
-                                            <th>Nama Poli</th>
-                                            <th>Nama Dokter</th>
-                                            <th>Hari</th>
-                                            <th>Jam</th>
+                                            <th>Deskripsi</th>
+                                            <th>Gambar</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
                                     <?php
                                             $nomor = 1;
-                                            $query = "SELECT * FROM ralan";
-                                            $q_tampil_ralan = mysqli_query($db, $query);
+                                            $query = "SELECT * FROM galeri";
+                                            $q_tampil_galeri = mysqli_query($db, $query);
 
-                                            if (mysqli_num_rows($q_tampil_ralan) > 0) {
-                                                while ($r_tampil_ralan = mysqli_fetch_array($q_tampil_ralan)) {
-                                            ?>
+                                            if (mysqli_num_rows($q_tampil_galeri) > 0) {
+                                                while ($r_tampil_galeri = mysqli_fetch_array($q_tampil_galeri)) {
+                                                ?>
                                                     <tr>
                                                         <td><?php echo $nomor; ?></td>
-                                                        <td><?php echo $r_tampil_ralan['nm_poli']; ?></td>
-                                                        <td><?php echo $r_tampil_ralan['nm_dokter']; ?></td>
-                                                        <td><?php echo $r_tampil_ralan['hari']; ?> , <?php echo $r_tampil_ralan['hari2']; ?></td>
-                                                        <td><?php echo $r_tampil_ralan['jam']; ?> , <?php echo $r_tampil_ralan['jam2']; ?></td>
+                                                        <td><?php echo $r_tampil_galeri['deskripsi']; ?></td>
+                                                        <td><img src="img/<?php echo $r_tampil_galeri['gambar'];?>" width=70px height=70px></td>
                                                         <td>
-                                                            <a href="edit-ralan.php?edit-ralan&id_ralan=<?php echo $r_tampil_ralan['id_ralan']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
-                                                            <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedRalan&id_ralan=<?= $r_tampil_ralan['id_ralan']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
+                                                            <a href="edit-galeri.php?edit-galeri&id_galeri=<?php echo $r_tampil_galeri['id_galeri']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
+                                                            <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedGaleri&id_galeri=<?= $r_tampil_galeri['id_galeri']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
                                                         </td>
                                                     </tr>
-                                            <?php
+                                                <?php
                                                     $nomor++;
                                                 }
                                             } else {

@@ -71,15 +71,25 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                     <input type="text" name="nm_dokter" class="form-control form-control-user" id="exampleInputEmail"
                                         value="<?php echo $r_tampil_ralan['nm_dokter'];?>">
                                 </div>
-                                <td>Hari</td>
+                                <td>Hari 1</td>
                                 <div class="form-group">
                                     <input type="text" name="hari" class="form-control form-control-user" id="exampleInputEmail"
                                         value="<?php echo $r_tampil_ralan['hari'];?>">
                                 </div>
-                                <td>Jam</td>
+                                <td>Jam 1</td>
                                 <div class="form-group">
-                                    <input type="time" name="jam" class="form-control form-control-user" id="exampleInputEmail"
+                                    <input type="text" name="jam" class="form-control form-control-user" id="exampleInputEmail"
                                         value="<?php echo $r_tampil_ralan['jam'];?>">
+                                </div>
+                                <td>Hari 2</td>
+                                <div class="form-group">
+                                    <input type="text" name="hari2" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['hari2'];?>">
+                                </div>
+                                <td>Jam 2</td>
+                                <div class="form-group">
+                                    <input type="text" name="jam2" class="form-control form-control-user" id="exampleInputEmail"
+                                        value="<?php echo $r_tampil_ralan['jam2'];?>">
                                 </div>
                                 <input type="submit" class="btn btn-primary btn-user btn-block" name="editRalan" value="Submit">
                             </form>
