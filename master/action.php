@@ -23,6 +23,7 @@
     // Fasilitas
     $id_fasilitas = $_POST['id_fasilitas'];
     $nm_fasilitas = $_POST['nm_fasilitas'];
+    $des_fasilitas = $_POST['deskripsi'];
     //Galeri
     $id_galeri = $_POST['id_galeri'];
     $nm_galeri = $_POST['nm_galeri'];
@@ -138,7 +139,7 @@
             $file_foto="-";
         }
 
-        $sql = "INSERT INTO fasilitas VALUES('$id_fasilitas', '$nm_fasilitas', '$file_foto')";
+        $sql = "INSERT INTO fasilitas VALUES('$id_fasilitas', '$nm_fasilitas', '$file_foto', '$des_fasilitas')";
         $query = mysqli_query($db, $sql);
         header("location: fasilitas.php?user=$data_user[id_user]");
 
@@ -159,7 +160,7 @@
         }
 
         mysqli_query($db, "UPDATE fasilitas
-                            SET nm_fasilitas='$nm_fasilitas', gambar='$file_foto'
+                            SET nm_fasilitas='$nm_fasilitas', gambar='$file_foto', deskripsi='$des_fasilitas'
                             WHERE id_fasilitas = '$id_fasilitas'");
         header("location: fasilitas.php?user=$data_user[id_user]");
 

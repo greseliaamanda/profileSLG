@@ -35,7 +35,7 @@
           <li class="dropdown"><a href="#services"><span>Layanan<span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="ranap.php">Rawat Inap</a></li>
-              <li class="dropdown"><a href="ralan.php"><span>Rawat Jalan</span> <i class="bi bi-chevron-right"></i></a>
+              <li><a href="ralan.php"><span>Rawat Jalan</span></i></a>
                 <!-- <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -46,13 +46,13 @@
               <li><a href="#">Layanan IGD</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#departments">Fasilitas</a></li>
-          <li><a class="nav-link scrollto" href="#doctors">Dokter</a></li>
+          <li><a class="nav-link scrollto" href="fasilitas.php">Fasilitas</a></li>
+          <!-- <li><a class="nav-link scrollto" href="#doctors">Dokter</a></li> -->
           <li class="dropdown"><a href="#"><span>Informasi</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Berita</a></li>
-              <li><a href="#">Event</a></li>
-              <li><a href="#">Pengumuman</a></li>
+              <li><a href="berita.php">Berita</a></li>
+              <!-- <li><a href="#">Event</a></li> -->
+              <li><a href="pengumuman.php">Pengumuman</a></li>
               <li><a href="galeri.php">Galeri</a></li>
             </ul>
           </li>

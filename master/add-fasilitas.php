@@ -60,10 +60,10 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                     <input type="file" name="gambar" class="form-control form-control-gambar" id="exampleInputEmail"
                                         placeholder="Gambar">
                                 </div>
-                                <!-- <div class="form-group">
-                                    <input type="password" name="password" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Password">
-                                </div> -->
+                                <div class="form-group">
+                                    <input type="text" name="deskripsi" class="form-control form-control-user" id="exampleInputEmail"
+                                        placeholder="Deskripsi">
+                                </div>
                                 <input type="submit" class="btn btn-primary btn-user btn-block" name="addFasilitas" value="Submit">
                             </form>
                         </div>

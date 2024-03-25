@@ -74,6 +74,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>No</th>
                                             <th>Nama Fasilitas</th>
                                             <th>Gambar</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </thead>
@@ -82,6 +83,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                             <th>No</th>
                                             <th>Nama Fasilitas</th>
                                             <th>Gambar</th>
+                                            <th>Deskripsi</th>
                                             <th>Aksi</th>
                                         </tr>
                                     </tfoot>
@@ -98,6 +100,7 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                                         <td><?php echo $nomor; ?></td>
                                                         <td><?php echo $r_tampil_fasilitas['nm_fasilitas']; ?></td>
                                                         <td><img src="img/<?php echo $r_tampil_fasilitas['gambar'];?>" width=70px height=70px></td>
+                                                        <td><?php echo $r_tampil_fasilitas['deskripsi']; ?></td>
                                                         <td>
                                                             <a href="edit-fasilitas.php?edit-fasilitas&id_fasilitas=<?php echo $r_tampil_fasilitas['id_fasilitas']; ?>"><button type="button" class="btn btn-warning btn-sm">Edit</button></a>
                                                             <button type="button" class="btn btn-danger btn-sm"><a href="action.php?act=deletedFasilitas&id_fasilitas=<?= $r_tampil_fasilitas['id_fasilitas']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus data ini?')" class="tombol" style="color:white">Hapus</a></button>
