@@ -1,3 +1,5 @@
+<?php include '../master/layout/koneksi.php'?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -68,7 +70,34 @@
 
     <section class="inner-page">
       <div class="container">
+        <div class="row">
+            <?php
+              $query = "SELECT * FROM pengumuman";
+              $q_tampil_peng = mysqli_query($db, $query);
 
+              if (mysqli_num_rows($q_tampil_peng) > 0) {
+                  while ($r_tampil_peng = mysqli_fetch_array($q_tampil_peng)) {
+            ?>
+
+          <div class="card" style="width: 18rem;">
+            <img src="../master/img/<?= $r_tampil_peng['gambar']?>" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><b></b><?= $r_tampil_peng['judul']?></b></h5>
+              <hr>
+              <p class="card-text"><?= $r_tampil_peng['isi']?></p>
+            </div>
+            <div class="card-body"><hr>
+              <a href="#" class="card-link">Baca Selengkapnya</a>
+            </div>
+          </div>
+
+          <?php
+          }
+              } else {
+                  echo "";
+              }
+          ?>
+        </div>
       </div>
     </section>
 

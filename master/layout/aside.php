@@ -106,7 +106,7 @@ include 'koneksi.php';
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Informasi:</h6>
                         <a class="collapse-item" href="berita.php?user=<?php echo $_SESSION['id_user']; ?>">Berita</a>
-                        <a class="collapse-item" href="events.php?user=<?php echo $_SESSION['id_user']; ?>">Events</a>
+                        <!-- <a class="collapse-item" href="events.php?user=<?php echo $_SESSION['id_user']; ?>">Events</a> -->
                         <a class="collapse-item" href="pengumuman.php?user=<?php echo $_SESSION['id_user']; ?>">Pengumuman</a>
                         <a class="collapse-item" href="galeri.php?user=<?php echo $_SESSION['id_user']; ?>">Galeri</a>
                     </div>

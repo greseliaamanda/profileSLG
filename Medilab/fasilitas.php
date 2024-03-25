@@ -71,6 +71,11 @@
     <section class="inner-page">
       <div class="container">
 
+      <div class="section-title">
+          <h2>Fasilitas</h2>
+          <p>RSUD Simpang Lima Gumul menyediakan beberapa fasilitas unggulan sebagai komitmen kami dalam menunjang kesembuhan dan kenyamanan pasien dan keluarga</p>
+        </div>
+
         <div class="row row-cols-1 row-cols-md-2 g-4">
         <?php
             $query = "SELECT * FROM fasilitas";
