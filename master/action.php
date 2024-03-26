@@ -33,6 +33,11 @@
     $judul = $_POST['judul'];
     $isi = $_POST['isi'];
     $tgl = date('Y-m-d H:i:s');
+    //berita
+    $id_berita = $_POST['id_berita'];
+    $penulis = $_POST['penulis'];
+    $tgl_posting = date('Y-m-d H:i:s');
+    $kontent = $_POST['kontent'];
 
     // Tambah admin
     if(isset($_POST['addUser'])){
@@ -244,33 +249,78 @@
         $query = mysqli_query($db, $sql);
         header("location: pengumuman.php?user=$data_user[id_user]");
     
-        //Edit Fasilitas
-        }if (isset($_POST['editPengumuman'])) {
-            extract($_POST);
-            $nama_file = $_FILES['gambar']['name'];
+    //Edit Fasilitas
+    }if (isset($_POST['editPengumuman'])) {
+        extract($_POST);
+        $nama_file = $_FILES['gambar']['name'];
     
-            if(!empty($nama_file)){
-                $lokasi_file = $_FILES['gambar']['tmp_name'];
-                $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
-                $file_foto = $id_peng.$judul.".".$tipe_file;
+        if(!empty($nama_file)){
+            $lokasi_file = $_FILES['gambar']['tmp_name'];
+            $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
+            $file_foto = $id_peng.$judul.".".$tipe_file;
     
-                $folder = "img/$file_foto";
-                move_uploaded_file($lokasi_file, "$folder");
-            } else {
-                $file_foto=$foto_awal;
-            }
-    
-            mysqli_query($db, "UPDATE pengumuman
-                                SET judul='$judul', gambar='$file_foto', isi='$isi', tgl='$tgl'
-                                WHERE id_peng = '$id_peng'");
-            header("location: pengumuman.php?user=$data_user[id_user]");
-    
-        // Hapus Ranap
-        }else if($act == 'deletedPeng'){
-    
-            mysqli_query($db, "DELETE FROM pengumuman WHERE id_peng = '$_GET[id_peng]'");
-            header("location: pengumuman.php?user=$data_user[id_user]");
-    
-    
+            $folder = "img/$file_foto";
+            move_uploaded_file($lokasi_file, "$folder");
+        } else {
+            $file_foto=$foto_awal;
         }
+    
+        mysqli_query($db, "UPDATE pengumuman
+            SET judul='$judul', gambar='$file_foto', isi='$isi', tgl='$tgl' WHERE id_peng = '$id_peng'");
+        header("location: pengumuman.php?user=$data_user[id_user]");
+    
+    // Hapus Ranap
+    }else if($act == 'deletedPeng'){
+    
+        mysqli_query($db, "DELETE FROM pengumuman WHERE id_peng = '$_GET[id_peng]'");
+        header("location: pengumuman.php?user=$data_user[id_user]");
+    
+    //Tambah Berita
+    }else if(isset($_POST['addBerita'])){
+        extract($_POST);
+        $nama_file = $_FILES['gambar']['name'];
+    
+        if(!empty($nama_file)){
+            $lokasi_file = $_FILES['gambar']['tmp_name'];
+            $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
+            $file_foto = $id_berita. $judul.".".$tipe_file;
+    
+            $folder = "img/$file_foto";
+            move_uploaded_file($lokasi_file,"$folder");
+        }else{
+            $file_foto="-";
+        }
+    
+        $sql = "INSERT INTO berita VALUES('$id_berita', '$penulis', '$judul', '$file_foto', '$kontent', '$tgl_posting')";
+        $query = mysqli_query($db, $sql);
+        header("location: berita.php?user=$data_user[id_user]");
+    
+    //Edit Berita
+    }if (isset($_POST['editBerita'])) {
+        extract($_POST);
+        $nama_file = $_FILES['gambar']['name'];
+    
+        if(!empty($nama_file)){
+            $lokasi_file = $_FILES['gambar']['tmp_name'];
+            $tipe_file = pathinfo($nama_file, PATHINFO_EXTENSION);
+            $file_foto = $id_berita.$judul.".".$tipe_file;
+    
+            $folder = "img/$file_foto";
+            move_uploaded_file($lokasi_file, "$folder");
+        } else {
+            $file_foto=$foto_awal;
+        }
+    
+        mysqli_query($db, "UPDATE berita
+            SET judul='$judul', penulis='$penulis', gambar='$file_foto', kontent='$kontent', tgl_posting='$tgl_posting' WHERE id_berita = '$id_berita'");
+        header("location: berita.php?user=$data_user[id_user]");
+    
+    // Hapus Ranap
+    }else if($act == 'deletedBerita'){
+    
+        mysqli_query($db, "DELETE FROM berita WHERE id_berita = '$_GET[id_berita]'");
+        header("location: berita.php?user=$data_user[id_user]");
+    
+    //Tambah 
+    }
 ?>

@@ -58,9 +58,8 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
                                         placeholder="Judul">
                                 </div>
                                 <div class="form-group">
-                                    <input type="text" name="isi" class="form-control form-control-user" id="exampleInputEmail"
-                                        placeholder="Isi">
-                                </div>
+									<textarea class="form-control input-sm" name="isi" id="kontent" rows="15"></textarea>
+								</div>
                                 <div class="form-group">
                                     <input type="datetime-local" name="tgl" class="form-control form-control-gambar" id="exampleInputEmail"
                                         placeholder="Tanggal">
@@ -90,6 +89,30 @@ if(isset($_SESSION['sesi']) && !empty($_SESSION['sesi'])){
     <script src="js/sb-admin-2.min.js"></script>
 
 </body>
+
+<script src="tinymce/tinymce.min.js"></script>
+
+<script type="text/javascript">
+
+tinymce.init({
+
+    selector: "textarea",
+
+    plugins: [
+
+        "advlist autolink lists link image charmap print preview anchor",
+
+        "searchreplace visualblocks code fullscreen",
+
+        "insertdatetime media table contextmenu paste"
+
+    ],
+
+toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image"
+
+});
+
+</script>
 
 </html>
 
